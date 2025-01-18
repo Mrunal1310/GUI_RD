@@ -63,20 +63,20 @@ off_button=ctk.CTkButton(frame2, text = "OFF", corner_radius=0, width=400, heigh
 off_button.grid(row=0, column=1,padx=50, pady=15,)
 
 # Start only Button
-value1_button=ctk.CTkButton(frame2,text = "Start only",  corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color= "black", font=("aerial", 15, 'bold'))
-value1_button.grid(row=1, column=1,padx=50, pady=15)
+start_button=ctk.CTkButton(frame2,text = "Start only",  corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color= "black", font=("aerial", 15, 'bold'))
+start_button.grid(row=1, column=1,padx=50, pady=15)
 
 # Complete only Button
-value2_button=ctk.CTkButton(frame2, text = "Complete only", corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color= "black", font=("aerial", 15, 'bold'))
-value2_button.grid(row=2, column=1,padx=50, pady=15,)
+complete_button=ctk.CTkButton(frame2, text = "Complete only", corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color= "black", font=("aerial", 15, 'bold'))
+complete_button.grid(row=2, column=1,padx=50, pady=15,)
 
 
 # Start to finish Button
-value3_button=ctk.CTkButton(frame2, text = "Start to finish", corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color= "black", font=("aerial", 15, 'bold'))
-value3_button.grid(row=3, column=1, padx=50, pady=15)
+start_finish_button=ctk.CTkButton(frame2, text = "Start to finish", corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color= "black", font=("aerial", 15, 'bold'))
+start_finish_button.grid(row=3, column=1, padx=50, pady=15)
 
-value3_button=ctk.CTkButton(frame2, text = "",fg_color="white")
-value3_button.grid(row=4, column=2, padx=50, pady=15)
+value_button=ctk.CTkButton(frame2, text = "",fg_color="white")
+value_button.grid(row=4, column=2, padx=50, pady=15)
 
 # Function for checkbox
 def on_checkbox_change():

@@ -23,7 +23,7 @@ class SelectAlarm:
         self.frame1.columnconfigure((0, 1, 2), weight=1)
 
         # Icon for close button
-        image_close = ctk.CTkImage(dark_image=Image.open("close.png"))
+        image_close = ctk.CTkImage(dark_image=Image.open("images/close_icon.png"))
         close_button = ctk.CTkButton(self.frame1, command=self.root.destroy, text="", image=image_close, hover_color="#A83232", fg_color="#A83232", width=50, height=20, corner_radius=0)
         close_button.grid(row=0, column=2, sticky='e')
 

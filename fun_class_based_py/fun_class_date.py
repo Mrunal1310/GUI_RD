@@ -15,8 +15,8 @@ class DateApp:
         with their weight 
         """
         # Configure grid column and row weights
-        # self.root.columnconfigure((0, 1, 2), weight=1)
-        # self.root.rowconfigure((0,1), weight=1)
+        self.root.columnconfigure((0, 1, 2), weight=1)
+        self.root.rowconfigure((0,1), weight=1)
 
         # Call the method to create UI components
         self.create_widgets()
@@ -29,7 +29,7 @@ class DateApp:
         self.frame1.columnconfigure((0, 1, 2), weight=1)
 
         # Close button image with close button
-        image_close = ctk.CTkImage(dark_image=Image.open("close.png"))
+        image_close = ctk.CTkImage(dark_image=Image.open("images/close_icon.png"))
         close_button = ctk.CTkButton(self.frame1, 
                                      command=self.root.destroy, 
                                      text="", image=image_close, 
@@ -41,7 +41,7 @@ class DateApp:
         close_button.grid(row=0, column=2, padx=10, sticky='e')
 
         # Check button image with check button
-        image_check = ctk.CTkImage(dark_image=Image.open("checked.png"))
+        image_check = ctk.CTkImage(dark_image=Image.open("images/checked_icon.png"))
         check_button = ctk.CTkButton(self.frame1, 
                                      command=self.check_label, 
                                      text="", image=image_check, 
@@ -53,7 +53,7 @@ class DateApp:
         check_button.grid(row=0, column=2, padx=50, sticky='e')
 
         # Font label image with font label
-        image_font = ctk.CTkImage(dark_image=Image.open("font.png"))
+        image_font = ctk.CTkImage(dark_image=Image.open("images/font_icon.png"))
         font_label = ctk.CTkButton(self.frame1,text="", 
                                    image=image_font, 
                                    hover_color="#A83232", 

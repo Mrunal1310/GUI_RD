@@ -6,7 +6,7 @@ import os
 """We can call this method in both class """
 class ImagePath:      
     @classmethod
-    def get_image_path(self, image_name):
+    def get_image_path(cls, image_name):
         """Returns the full path to the image file."""
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
         image_dir = os.path.join(script_dir,"images")  # Go up one directory and access 'images' folder
@@ -14,9 +14,9 @@ class ImagePath:
         return image_path
     
     @classmethod
-    def load_image(self, image_name):
+    def load_image(cls, image_name):
         """Load and return an image with exception handling."""
-        image_path = self.get_image_path(image_name)
+        image_path = cls.get_image_path(image_name)
         try:
             image = Image.open(image_path)  # Try to open the image file
             image.close()  # To close the image file

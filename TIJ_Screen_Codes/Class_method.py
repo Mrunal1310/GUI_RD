@@ -57,7 +57,7 @@ class PrinterWindow:
             close_button.grid(row=0, column=2, sticky='e')
 
         # Label for Printer title
-        label1 = ctk.CTkLabel(self.frame1, text="Printer", fg_color="#A83232", anchor='center', text_color="white", font=("aerial", 20, 'bold'))
+        label1 = ctk.CTkLabel(self.frame1, text="Printer", fg_color="#A83232", anchor='center', text_color="white", font=("aerial", 24, 'bold'))
         label1.grid(row=0, column=1, pady=5, padx=10, sticky="n")
 
         self.frame1.grid(row=0, column=0, columnspan=3, sticky="new")
@@ -76,7 +76,7 @@ class PrinterWindow:
 
         # For loop to create buttons 
         for idx, label in enumerate(button_labels):
-            button = ctk.CTkButton(self.frame2, text=label, corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color="black", font=("aerial", 15, 'bold'))
+            button = ctk.CTkButton(self.frame2, text=label, corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color="black", font=("Aerial", 20,))
             button.grid(row=idx, column=1, padx=40, pady=15)           
 
 # Class of Printer Window 
@@ -110,7 +110,7 @@ class CalendarWindow:
             close_button.grid(row=0, column=2, sticky='e')
 
         # Label for Calendar title
-        label1 = ctk.CTkLabel(self.frame1, text="Calendar", fg_color="#A83232", anchor='center', text_color="white", font=("aerial", 20, 'bold'))
+        label1 = ctk.CTkLabel(self.frame1, text="Calendar", fg_color="#A83232", anchor='center', text_color="white", font=("Aerial", 24,'bold'))
         label1.grid(row=0, column=1, pady=5, padx=10, sticky="n")
 
         self.frame1.grid(row=0, column=0, columnspan=3, sticky="new")
@@ -129,7 +129,7 @@ class CalendarWindow:
 
         # For loop to create buttons 
         for idx, label in enumerate(button_labels):
-            button = ctk.CTkButton(self.frame2, text=label, corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color="black", font=("aerial", 15, 'bold'))
+            button = ctk.CTkButton(self.frame2, text=label, corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color="black", font=("Aerial", 20,))
             button.grid(row=idx, column=1, padx=40, pady=15)
             
 # Class of Select alarm Window
@@ -163,7 +163,7 @@ class SelectAlarmWindow:
             close_button.grid(row=0, column=2, sticky='e')
 
         # Label for Calendar title
-        label1 = ctk.CTkLabel(self.frame1, text="Select alarm ", fg_color="#A83232", anchor='center', text_color="white", font=("aerial", 20, 'bold'))
+        label1 = ctk.CTkLabel(self.frame1, text="Select alarm ", fg_color="#A83232", anchor='center', text_color="white", font=("Aerial", 24, 'bold'))
         label1.grid(row=0, column=1, pady=5, padx=10, sticky="n")
 
         self.frame1.grid(row=0, column=0, columnspan=3, sticky="new")
@@ -182,7 +182,7 @@ class SelectAlarmWindow:
 
         # For loop to create buttons 
         for idx, label in enumerate(button_labels):
-            button = ctk.CTkButton(self.frame2, text=label, corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color="black", font=("aerial", 15, 'bold'))
+            button = ctk.CTkButton(self.frame2, text=label, corner_radius=0, width=400, height=40, fg_color="#FF00FF", hover_color="pink", text_color="black", font=("Aerial", 20,))
             button.grid(row=idx, column=1, padx=40, pady=15)
 
 # Main function

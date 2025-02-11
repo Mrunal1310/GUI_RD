@@ -9,7 +9,7 @@ class ImagePath:
     def get_image_path(cls, image_name):
         """Returns the full path to the image file."""
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
-        image_dir = os.path.join(script_dir)  # Go up one directory and access 'images' folder
+        image_dir = os.path.join(script_dir,"images")  # Go up one directory and access 'images' folder
         image_path = os.path.join(image_dir, image_name)  # Construct the full image path
         return image_path
     

@@ -1,116 +1,118 @@
-import customtkinter as ctk  # customtkinter library
-from PIL import Image        # Pillow library
+import customtkinter as ctk
+from PIL import Image
+import os
 
-# Class based Date Program
-class DateApp:
-    def __init__(self, root):      # Function to create main window
-        self.root = root
-        self.root.title("Date")
-        self.root.geometry("1200x800")
-        self.root.resizable(True, True)
-        self.root.config(bg="white")
+# Class method for image path
+class ImagePath:      
+    @classmethod
+    def get_image_path(cls, image_name):
+        """Returns the full path to the image file."""
+        script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
+        image_dir = os.path.join(script_dir,"images")  # Go up one directory and access 'images' folder
+        image_path = os.path.join(image_dir, image_name)  # Construct the full image path
+        return image_path
+    
+    @classmethod
+    def load_image(cls, image_name):
+        """Load and return an image with exception handling."""
+        image_path = cls.get_image_path(image_name)
+        try:
+            image = Image.open(image_path)  # Try to open the image file
+            image.close()  # To close the image file
+            return ctk.CTkImage(dark_image=image)  # Return the image wrapped as CTkImage
+        except FileNotFoundError:
+            print(f"Error: Image not found at {image_path}")
+        except Exception as e:
+            print(f"An error occurred while loading the image: {e}")
+
+#Class for Date Window
+class DateWindow:
+    def __init__(self, app):
+        self.date_window = app
+        self.date_window.title("Print sound")
+        self.date_window.geometry("1200x800")
+        self.date_window.config(bg="white")
+
+        # Configure the grid columns and rows for the window
+        self.date_window.columnconfigure((0, 1, 2), weight=1)
+        self.date_window.rowconfigure((0), weight=1)
+        self.date_window.rowconfigure((1, 2), weight=1)
+
+        self.create_title_frame()
+        self.create_button_frame()
+
+    def create_title_frame(self):
+        # Frame for the title bar
+        frame1 = ctk.CTkFrame(self.date_window, fg_color="#A83232", corner_radius=0)
+        frame1.columnconfigure((0, 1, 2), weight=1)
+        frame1.rowconfigure(0, weight=1)
         
-        """ 
-        The below configuration was of root window as per rows and columns
-        with their weight 
-        """
-        # Configure grid column and row weights
-        self.root.columnconfigure((0, 1, 2), weight=1)
-        self.root.rowconfigure((0,1), weight=1)
+        # List of image filenames for title buttons and label
+        image_files = ["close_icon.png", "checked_icon.png", "font_icon.png"]
 
-        # Call the method to create UI components
-        self.create_widgets()
+        # Loop through the image files and load them
+        for idx, image_name in enumerate(image_files):
+            image = ImagePath.load_image(image_name)
+            if image:
+                button = ctk.CTkButton(frame1, command=self.select_alarm.destroy, text="", image=image, 
+                                       hover_color="#A83232", fg_color="#A83232", bg_color="#A83232", 
+                                       width=50, corner_radius=0)
+                button.grid(row=0, column=idx, sticky='e' 
+                            if idx == 2 else 'w')
+
+        # List of labels for title
+        label_list=["Date","Font",]
         
-        # Function to create widgets
-    def create_widgets(self):
-        # Create and configure title frame
-        self.frame1 = ctk.CTkFrame(self.root, fg_color="#A83232", corner_radius=0)
-        self.frame1.grid(row=0, column=0, columnspan=3, sticky="new")
-        self.frame1.columnconfigure((0, 1, 2), weight=1)
+        # For loop for to arrange labels
+        for idx, text in enumerate(label_list):
+            label_name=ctk.CTkLabel(frame1, text=text, fg_color="#A83232", bg_color="#A83232", anchor='center',
+                              text_color="white", font=("aerial", 20, 'bold'))
+            label_name.grid(row=0, column=1, padx=150, pady=5, sticky="new" if idx == 1 else 'w')
+            
+        # label1 = ctk.CTkLabel(frame1, text="Date", fg_color="#A83232", bg_color="#A83232", anchor='center',
+        #                       text_color="white", font=("aerial", 20, 'bold'))
+        # label1.grid(row=0, column=1, padx=150, pady=5, sticky="new")
 
-        # Close button image with close button
-        image_close = ctk.CTkImage(dark_image=Image.open("images/close_icon.png"))
-        close_button = ctk.CTkButton(self.frame1, 
-                                     command=self.root.destroy, 
-                                     text="", image=image_close, 
-                                     hover_color="#A83232", 
-                                     fg_color="#A83232", 
-                                     bg_color="#A83232", 
-                                     width=50, 
-                                     corner_radius=0)
-        close_button.grid(row=0, column=2, padx=10, sticky='e')
+        # label2 = ctk.CTkLabel(frame1, text="Font", fg_color="#A83232", bg_color="#A83232", anchor='center',
+        #                       text_color="white", font=("aerial", 20, 'bold'))
+        # label2.grid(row=0, column=0, padx=40, pady=5, sticky="nw")
 
-        # Check button image with check button
-        image_check = ctk.CTkImage(dark_image=Image.open("images/checked_icon.png"))
-        check_button = ctk.CTkButton(self.frame1, 
-                                     command=self.check_label, 
-                                     text="", image=image_check, 
-                                     hover_color="#A83232", 
-                                     fg_color="#A83232", 
-                                     bg_color="#A83232", 
-                                     width=50, 
-                                     corner_radius=0)
-        check_button.grid(row=0, column=2, padx=50, sticky='e')
 
-        # Font label image with font label
-        image_font = ctk.CTkImage(dark_image=Image.open("images/font_icon.png"))
-        font_label = ctk.CTkButton(self.frame1,text="", 
-                                   image=image_font, 
-                                   hover_color="#A83232", 
-                                   fg_color="#A83232", 
-                                   width=50, 
-                                   corner_radius=0)
-        font_label.grid(row=0, column=0, sticky='w')
+        # Add title frame to the window
+        frame1.grid(row=0, column=0, columnspan=3, sticky="new")
 
-        # Labels for Date and Font Title
-        label1 = ctk.CTkLabel(self.frame1, text="Date", fg_color="#A83232", anchor='center', text_color="white", font=("Arial", 20, 'bold'))
-        label1.grid(row=0, column=1, padx=150, pady=5, sticky="new")
+    def create_button_frame(self):
+        # Frame for the buttons
+        frame2 = ctk.CTkFrame(self.date_window, fg_color="white", corner_radius=0)
+        frame2.grid(row=1, column=1)
 
-        label2 = ctk.CTkLabel(self.frame1, text="Font", fg_color="#A83232", anchor='center', text_color="white", font=("Arial", 20, 'bold'))
-        label2.grid(row=0, column=0, padx=40, pady=5, sticky="nw")
+        # Configure the grid columns and rows for button frame
+        frame2.columnconfigure((0, 1, 2), weight=1)
+        frame2.rowconfigure((0, 1, 2, 3, 4, 5), weight=1)
 
-        # Create Frame2 for buttons with different types of date formate as per year, month and date
-        self.frame2 = ctk.CTkFrame(self.root, fg_color="white", corner_radius=0)
-        self.frame2.grid(row=1, column=1)
-
-        # Configure the grid column for the buttons
-        self.frame2.columnconfigure((0, 1, 2), weight=1)
-        
-        # For loop to arrange various buttons in rows and columns 
-        for i in range(6):
-            self.frame2.rowconfigure(i, weight=1)    # Configure the grid column for the buttons
-
-        # Buttons texts and positions
+        # Create buttons dynamically using a loop
         button_texts = [
-            ("2025-01-07", 0, 0), ("25/01/07", 1, 0), ("25 01 07", 2, 0),
-            ("01-07-2025", 3, 0), ("07/01/25", 4, 0), ("23:57:54", 5, 0),
-            ("2025/01/07", 0, 1), ("25-01-07", 1, 1), ("25 Jan 07", 2, 1),
-            ("01.07.25", 3, 1), ("07-01-25", 4, 1), ("23:57", 5, 1),
-            ("2025年01月07日", 0, 2), ("25.01.07", 1, 2), ("01/07/25", 2, 2),
-            ("JAN 07 25", 3, 2), ("07.01.25", 4, 2), ("Term", 5, 2)
+            ["2025-01-07", "25/01/07", "25 01 07", "01-07-2025", "07/01/25", "23:57:54"],
+            ["2025/01/07", "25-01-07", "25 Jan 07", "01.07.25", "07-01-25", "23:57"],
+            ["2025年01月07日", "25.01.07", "01/07/25", "JAN 07 25", "07.01.25", "Term"]
         ]
 
-        # Create buttons dynamically in the grid layout
-        for (text, row, col) in button_texts:
-            button = ctk.CTkButton(self.frame2, 
-                                   text=text, 
-                                   corner_radius=0, 
-                                   width=400, 
-                                   height=40, 
-                                   fg_color="#FF00FF", 
-                                   hover_color="pink", 
-                                   text_color="black", 
-                                   font=("Arial", 15, 'bold')
-                                   )
-            button.grid(row=row, column=col, padx=50, pady=15)
+        # Create buttons for each column
+        for col_idx, texts in enumerate(button_texts):
+            for row_idx, text in enumerate(texts):
+                button = ctk.CTkButton(frame2, text=text, corner_radius=0, width=400, height=40, fg_color="#FF00FF",
+                                       hover_color="pink", text_color="black", font=("aerial", 15, 'bold'))
+                button.grid(row=row_idx, column=col_idx, padx=50, pady=15 )
+                
+                
 
-    # Placeholder for check button functionality
     def check_label(self):
-        pass
+        # Function for button actions
+        print("Check label clicked")
 
 
-# Create the main window and pass it to the PrintSoundApp class
+# Run the application
 if __name__ == "__main__":
-    root = ctk.CTk()
-    app = DateApp(root)
-    root.mainloop()
+    app = ctk.CTk()
+    date_window = DateWindow(app)
+    app.mainloop()

@@ -29,26 +29,26 @@ class HomeScreenApp(ctk.CTk):
         # Button configuration dictionary
         self.button_config = {
             "Print": {
-                "image": "images/print_icon.png",
+                "image": "print_icon.png",
                 "fg_color": "#87CEFF", 
                 "text": "Print", 
                 "command": self.print_butn, 
                 
             },
             "File": {
-                "image": "images/files_icon.png",
+                "image": "files_icon.png",
                 "fg_color": "#5CACEE",
                 "text": "File", 
                 "command": self.file_butn, 
             },
             "Edit": {
-                "image": "images/edit_icon.png",
+                "image": "edit_icon.png",
                 "fg_color": "#EE3B3B", 
                 "text": "Edit", 
                 "command": self.edit_butn, 
             },
             "Setting": {
-                "image": "images/setting_icon.png",
+                "image": "setting_icon.png",
                 "fg_color": "#B452CD",
                 "text": "Setting", 
                 "command": self.setting_butn,

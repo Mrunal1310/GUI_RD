@@ -54,10 +54,7 @@ class RoundTripprinting:
         
         # Button label list
         self.button_list=[
-            "OFF", "Start only",
-            "Complete only",
-            "Start to finish",
-            
+            "OFF", "Start only","Complete only","Start to finish",
         ]
         
         self.create_button()
@@ -68,7 +65,7 @@ class RoundTripprinting:
             button=ctk.CTkButton(self.frame, text = label, corner_radius=0, fg_color="#FF00FF", text_color= "black", font=("Aerial", 15,))
             button.grid(row=index, column=1, padx=50, pady=20, sticky="ew")
         
-        self.checkbox = ctk.CTkCheckBox(self.frame, text="External alarm", corner_radius=0, border_width=2, text_color= "black", font=("aerial", 25,), bg_color="white",)
+        self.checkbox = ctk.CTkCheckBox(self.frame, text="External alarm", corner_radius=0, border_width=2, text_color= "black", font=("Aerial", 20,), bg_color="white",)
         self.checkbox.grid(row=4, column=0, padx=50, pady=20, sticky="ew")
         
 # Function to root window

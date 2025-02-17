@@ -45,42 +45,30 @@ class Grayscale:
         except Exception as e:
             print(f"An error occurred: {e}")
             
+    # Function to create button frame with button labels
     def button_frame(self):
-        
         self.frame=ctk.CTkFrame(self.grayscale, fg_color="white", corner_radius=0)
-        self.frame.columnconfigure((0,1), weight=1)
+        self.frame.columnconfigure((0,1,), weight=1)
         self.frame.rowconfigure((0,1,2,3,4), weight=1)
-        self.frame.grid(row=1, column=0, sticky="news")
+        self.frame.grid(row=1, column=0,pady=20,sticky="news")
         
-        self.button=ctk.CTkButton(self.frame, text = "routine", corner_radius=0, fg_color="#FF00FF",  text_color= "black", font=("aerial", 15, 'bold'))
-        self.button.grid(row=0, column=0,padx=40, pady=15, sticky="ew")
+        # Button labels list
+        self.button_list=[
+            "routine", "Bold", 
+            "Double", "Triple",
+            "Fourfold", "Five times",
+            "Six times", "Seven times",
+            "Eight times", "Nine times",
+        ]
+        self.create_buttons()
         
-        self.button=ctk.CTkButton(self.frame, text = "Double", corner_radius=0, fg_color="#FF00FF",  text_color= "black", font=("aerial", 15, 'bold'))
-        self.button.grid(row=1, column=0,padx=40, pady=15, sticky="ew")
-        
-        self.button=ctk.CTkButton(self.frame, text = "Fourfold", corner_radius=0, fg_color="#FF00FF",  text_color= "black", font=("aerial", 15, 'bold'))
-        self.button.grid(row=2, column=0,padx=40, pady=15, sticky="ew")
-        
-        self.button=ctk.CTkButton(self.frame, text = "Six times", corner_radius=0, fg_color="#FF00FF",  text_color= "black", font=("aerial", 15, 'bold'))
-        self.button.grid(row=3, column=0,padx=40, pady=15, sticky="ew")
-        
-        self.button=ctk.CTkButton(self.frame, text = "Eight times", corner_radius=0, fg_color="#FF00FF",  text_color= "black", font=("aerial", 15, 'bold'))
-        self.button.grid(row=4, column=0,padx=40, pady=15, sticky="ew")
-        
-        self.button=ctk.CTkButton(self.frame, text = "Bold", corner_radius=0, fg_color="#FF00FF",  text_color= "black", font=("aerial", 15, 'bold'))
-        self.button.grid(row=0, column=1,padx=40, pady=15, sticky="ew")
-        
-        self.button=ctk.CTkButton(self.frame, text = "Triple", corner_radius=0, fg_color="#FF00FF",  text_color= "black", font=("aerial", 15, 'bold'))
-        self.button.grid(row=1, column=1,padx=40, pady=15, sticky="ew")
-        
-        self.button=ctk.CTkButton(self.frame, text = "Five times", corner_radius=0, fg_color="#FF00FF",  text_color= "black", font=("aerial", 15, 'bold'))
-        self.button.grid(row=2, column=1,padx=40, pady=15, sticky="ew")
-        
-        self.button=ctk.CTkButton(self.frame, text = "Seven times", corner_radius=0, fg_color="#FF00FF",  text_color= "black", font=("aerial", 15, 'bold'))
-        self.button.grid(row=3, column=1,padx=40, pady=15, sticky="ew")
-        
-        self.button=ctk.CTkButton(self.frame, text = "Nine times", corner_radius=0, fg_color="#FF00FF",  text_color= "black", font=("aerial", 15, 'bold'))
-        self.button.grid(row=4, column=1,padx=40, pady=15, sticky="ew")
+    # Function to create button in rows and columns with button labels
+    def create_buttons(self):
+        for index, label in enumerate(self.button_list):
+            row = index // 2
+            col = index % 2
+            button=ctk.CTkButton(self.frame, text = label, corner_radius=0, fg_color="#FF00FF", text_color= "black", font=("Aerial", 15,))
+            button.grid(row=row, column=col, padx=40, pady=20, sticky="ew")
         
 def main():
     root=ctk.CTk()

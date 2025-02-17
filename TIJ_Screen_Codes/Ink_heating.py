@@ -2,32 +2,32 @@ import customtkinter as ctk
 from PIL import Image
 import os
 
-# Class of Calendar Window
-class DPIWindow:
+# Class of Ink heating Window
+class InkHeating:
     # Function to create root window
     def __init__(self, root):
-        self.dpiwindow=root
-        self.dpiwindow.title("DPI")
-        self.dpiwindow.geometry("1200x800")
-        self.dpiwindow.resizable(True, True)
-        self.dpiwindow.config(bg="white")
+        self.inkheating=root
+        self.inkheating.title("Ink heating")
+        self.inkheating.geometry("1200x800")
+        self.inkheating.resizable(True, True)
+        self.inkheating.config(bg="white")
         
         # Configuration of Window
-        self.dpiwindow.columnconfigure(0, weight=1)
-        self.dpiwindow.rowconfigure((0,1,2), weight=1)
+        self.inkheating.columnconfigure(0, weight=1)
+        self.inkheating.rowconfigure((0,1,2), weight=1)
         
         self.title_frame()
         self.button_frame()
         
     # Function to create title frame
     def title_frame(self):
-        self.frame=ctk.CTkFrame(self.dpiwindow,fg_color="white", corner_radius=0)
+        self.frame=ctk.CTkFrame(self.inkheating,fg_color="white", corner_radius=0)
         self.frame.columnconfigure(0, weight=1)
         self.frame.rowconfigure(0, weight=0)
         self.frame.grid(row=0, column=0, sticky="new")
         
-        self.label=ctk.CTkLabel(self.frame, text="DPI",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Aerial", 20, 'bold'))
-        self.label.grid(row=0, column=0, pady=5, padx=0, sticky="new")
+        self.label=ctk.CTkLabel(self.frame, text="Ink heating",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Aerial", 20, 'bold'))
+        self.label.grid(row=0, column=0, pady=5, sticky="new")
         
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
         image_dir = os.path.join(script_dir,)
@@ -35,26 +35,26 @@ class DPIWindow:
         
         try:
             image=ctk.CTkImage(dark_image=Image.open(image_path))
-            self.close_button=ctk.CTkButton(self.frame, text="",anchor="center", image=image, command=self.dpiwindow.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
+            self.close_button=ctk.CTkButton(self.frame, text="",anchor="center", image=image, command=self.inkheating.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
             self.close_button.grid(row=0, column=0,sticky='e')
             image.close()
         except FileNotFoundError:
             print(f"Error: Image not found at {image_path}")
-            self.close_button=ctk.CTkButton(self.frame, text="X",anchor="center", command=self.dpiwindow.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
+            self.close_button=ctk.CTkButton(self.frame, text="X",anchor="center", command=self.inkheating.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
             self.close_button.grid(row=0, column=0, sticky='e')
         except Exception as e:
             print(f"An error occurred: {e}")
             
     # Button labels list
     def button_frame(self,):
-        self.frame=ctk.CTkFrame(self.dpiwindow, fg_color="white", corner_radius=0)
+        self.frame=ctk.CTkFrame(self.inkheating, fg_color="white", corner_radius=0)
         self.frame.columnconfigure((0,1), weight=1)
         self.frame.rowconfigure((0,1,2), weight=1)
         self.frame.grid(row=1, column=0, pady=20,sticky="news")
         
         # Button label list
         self.button_list=[
-            "300*300", "150*300", "300*150", "150*150", "300*100", "150*100",
+            "OFF", "+5°C", "+10°C", "+15°C", "+20°C", "+25°C",
         ]
         
         self.create_button()
@@ -70,7 +70,7 @@ class DPIWindow:
 # Function to root window
 def main():
     root=ctk.CTk()
-    app = DPIWindow(root)
+    app = InkHeating(root)
     root.mainloop()
     
 # Run the program

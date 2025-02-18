@@ -50,7 +50,7 @@ class DateWindow:
             self.close_button=ctk.CTkButton(self.frame, text="X", command=self.date.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
             self.close_button.grid(row=0, column=0,sticky='e')
             
-            self.check_button=ctk.CTkButton(self.frame, text="Y",command=check_button, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
+            self.check_button=ctk.CTkButton(self.frame, text="✓",command=check_button, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
             self.check_button.grid(row=0, column=0,padx=50,sticky='e')
         except Exception as e:
             print(f"An error occurred: {e}")

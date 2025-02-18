@@ -47,7 +47,7 @@ class PrintSound:
             self.close_button=ctk.CTkButton(self.frame, text="X",anchor="center", command=self.print_sound.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
             self.close_button.grid(row=0, column=0, sticky='e')
             
-            self.close_button=ctk.CTkButton(self.frame, text="Y",anchor="center", command=check_button, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
+            self.close_button=ctk.CTkButton(self.frame, text="✓",anchor="center", command=check_button, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
             self.close_button.grid(row=0, column=0,padx=50, sticky='e')
         except Exception as e:
             print(f"An error occurred: {e}")

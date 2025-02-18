@@ -2,7 +2,7 @@ import customtkinter as ctk
 from PIL import Image
 import os
 
-# Class of Calendar Window
+# Class of Print set Window
 class PrintSet:
     # Function to create root window
     def __init__(self, root):

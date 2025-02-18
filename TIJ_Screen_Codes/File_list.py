@@ -30,7 +30,7 @@ class FileList:
         self.frame.rowconfigure(0, weight=0)
         self.frame.grid(row=0, column=0, columnspan=2, sticky="new")
         
-        self.label=ctk.CTkLabel(self.frame, text="File list",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Aerial", 20, 'bold'))
+        self.label=ctk.CTkLabel(self.frame, text="File list",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Arial", 20, 'bold'))
         self.label.grid(row=0, column=0, pady=5, padx=0, sticky="new")
         
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
@@ -56,10 +56,10 @@ class FileList:
         self.frame.rowconfigure((0,1,), weight=0)
         self.frame.grid(row=1, column=0,pady=10,padx=10, sticky="news")
         
-        self.system_disk=ctk.CTkButton(self.frame, text="System disk", text_color="black",anchor="w", fg_color="white",hover_color="#FF00FF",font=("Aerial", 20,),corner_radius=0, )
+        self.system_disk=ctk.CTkButton(self.frame, text="System disk", text_color="black",anchor="w", fg_color="white",hover_color="#FF00FF",font=("Arial", 20,),corner_radius=0, )
         self.system_disk.grid(row=0, column=0, padx=10,pady=5,sticky="news")
         
-        self.user_disk=ctk.CTkButton(self.frame, text="User disk",  text_color="black",anchor="w",fg_color="white",hover_color="#FF00FF", font=("Aerial", 20,), corner_radius=0,)
+        self.user_disk=ctk.CTkButton(self.frame, text="User disk",  text_color="black",anchor="w",fg_color="white",hover_color="#FF00FF", font=("Arial", 20,), corner_radius=0,)
         self.user_disk.grid(row=1, column=0, padx=10,pady=5,sticky="news")
         
     def display_frame(self):
@@ -69,10 +69,10 @@ class FileList:
         self.frame.rowconfigure((0,1,), weight=1)
         self.frame.grid(row=1, column=1, padx=5,pady=10, sticky="news")
         
-        self.format_butn=ctk.CTkButton(self.frame, text="Format", text_color="white",fg_color="#A83232",font=("Aerial", 22,),corner_radius=0, )
+        self.format_butn=ctk.CTkButton(self.frame, text="Format", text_color="white",fg_color="#A83232",font=("Arial", 22,),corner_radius=0, )
         self.format_butn.grid(row=1, column=0, padx=10, pady=50, sticky="es")
         
-        self.open_butn=ctk.CTkButton(self.frame, text="Open",  text_color="white",fg_color="#A83232", font=("Aerial", 22,), corner_radius=0,)
+        self.open_butn=ctk.CTkButton(self.frame, text="Open",  text_color="white",fg_color="#A83232", font=("Arial", 22,), corner_radius=0,)
         self.open_butn.grid(row=1, column=0, padx=10,pady=10,sticky="es")
         
 def main():

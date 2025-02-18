@@ -30,7 +30,7 @@ class SettingWindow:
         self.frame.rowconfigure(0, weight=0)
         self.frame.grid(row=0, column=0,columnspan=2, sticky="new")
         
-        self.label=ctk.CTkLabel(self.frame, text="Setting",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Aerial", 20, 'bold'))
+        self.label=ctk.CTkLabel(self.frame, text="Setting",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Arial", 20, 'bold'))
         self.label.grid(row=0, column=0, pady=5, padx=0, sticky="new")
         
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
@@ -65,7 +65,7 @@ class SettingWindow:
     # Function to create button in rows and columns with button labels
     def create_buttons(self):
         for index, label in enumerate(self.button_list):
-            button=ctk.CTkButton(self.frame, text = label, corner_radius=0, anchor="w", fg_color="#C4E3ED", bg_color="#C4E3ED", hover_color="#FF00FF",text_color= "black", font=("Aerial", 18,))
+            button=ctk.CTkButton(self.frame, text = label, corner_radius=0, anchor="w", fg_color="#C4E3ED", bg_color="#C4E3ED", hover_color="#FF00FF",text_color= "black", font=("Arial", 18,))
             button.grid(row=index, column=0,padx=20, sticky="nsew")
             
     def display_frame(self):

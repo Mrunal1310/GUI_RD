@@ -26,7 +26,7 @@ class InkHeating:
         self.frame.rowconfigure(0, weight=0)
         self.frame.grid(row=0, column=0, sticky="new")
         
-        self.label=ctk.CTkLabel(self.frame, text="Ink heating",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Aerial", 20, 'bold'))
+        self.label=ctk.CTkLabel(self.frame, text="Ink heating",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Arial", 20, 'bold'))
         self.label.grid(row=0, column=0, pady=5, sticky="new")
         
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
@@ -64,7 +64,7 @@ class InkHeating:
         for index, label in enumerate(self.button_list):
             row=index // 2
             col=index % 2
-            button=ctk.CTkButton(self.frame, text = label, corner_radius=0, fg_color="#FF00FF", text_color= "black", font=("Aerial", 15,))
+            button=ctk.CTkButton(self.frame, text = label, corner_radius=0, fg_color="#FF00FF", text_color= "black", font=("Arial", 15,))
             button.grid(row=row, column=col, padx=50, pady=20, sticky="ew")
             
 # Function to root window

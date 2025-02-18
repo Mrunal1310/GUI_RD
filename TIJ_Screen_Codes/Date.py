@@ -47,10 +47,10 @@ class DateWindow:
             image.close()
         except FileNotFoundError:
             print(f"Error: Image not found at {image_path}")
-            self.close_button=ctk.CTkButton(self.frame, text="X", command=self.date.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
+            self.close_button=ctk.CTkButton(self.frame, text="X", command=self.date.destroy, hover_color="#A83232", fg_color="#A83232",width=50, height=20, corner_radius=0)
             self.close_button.grid(row=0, column=0,sticky='e')
             
-            self.check_button=ctk.CTkButton(self.frame, text="✓",command=check_button, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
+            self.check_button=ctk.CTkButton(self.frame, text="✓",command=check_button, hover_color="#A83232", fg_color="#A83232",width=50, height=20, corner_radius=0)
             self.check_button.grid(row=0, column=0,padx=50,sticky='e')
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -75,14 +75,17 @@ class DateWindow:
         
     # Function to create button in rows and columns with button labels
     def create_buttons(self):
+        # Function after clicking button
+        def clicked_button():
+                print("Click button")
         for index, label in enumerate(self.button_list):
             row= index // 3
             col= index % 3
-            button=ctk.CTkButton(self.frame, text = label, corner_radius=0, fg_color="#FF00FF", text_color= "black", font=("Arial", 15,))
+            button=ctk.CTkButton(self.frame, text = label,command=clicked_button, corner_radius=0, fg_color="#FF00FF", text_color= "black", font=("Arial", 15,))
             button.grid(row=row, column=col, padx=40, pady=20, sticky="ew")
             self.button=ctk.CTkButton(self.frame, text = "Term", corner_radius=0, fg_color="#C4E3ED", text_color= "black", font=("Arial", 15,))
             self.button.grid(row=5, column=2, padx=40, pady=20, sticky="ew")
-                
+            
 # Function to root window
 def main():
     root=ctk.CTk()

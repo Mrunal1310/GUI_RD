@@ -17,6 +17,7 @@ class Language:
         self.language.rowconfigure((0,), weight=0)
         self.language.rowconfigure((1,), weight=1)
         
+        # Create widgets
         self.title_frame()
         self.button_frame()
         
@@ -34,14 +35,15 @@ class Language:
         image_dir = os.path.join(script_dir,)
         image_path = os.path.join(image_dir, "close_icon.png")
         
+        # Close Button Icon
         try:
             image=ctk.CTkImage(dark_image=Image.open(image_path))
-            self.close_button=ctk.CTkButton(self.frame, text="",anchor="center", image=image, command=self.language.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
+            self.close_button=ctk.CTkButton(self.frame, text="", image=image, command=self.language.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
             self.close_button.grid(row=0, column=0, sticky='e')
             image.close()
         except FileNotFoundError:
             print(f"Error: Image not found at {image_path}")
-            self.close_button=ctk.CTkButton(self.frame, text="X",anchor="center", command=self.language.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
+            self.close_button=ctk.CTkButton(self.frame, text="X",command=self.language.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
             self.close_button.grid(row=0, column=0, sticky='e')
         except Exception as e:
             print(f"An error occurred: {e}")

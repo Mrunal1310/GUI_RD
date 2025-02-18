@@ -12,10 +12,11 @@ class RoundTripprinting:
         self.round_trip_print.resizable(True, True)
         self.round_trip_print.config(bg="white")
         
-        # Configuration of Window
+        # Configure grid column and row weights
         self.round_trip_print.columnconfigure(0, weight=1)
         self.round_trip_print.rowconfigure((0,1,2), weight=1)
         
+        # Create widgets
         self.title_frame()
         self.button_frame()
         
@@ -26,7 +27,9 @@ class RoundTripprinting:
         self.frame.rowconfigure(0, weight=0)
         self.frame.grid(row=0, column=0, sticky="new")
         
-        self.label=ctk.CTkLabel(self.frame, text="Round trip printing",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Arial", 20, 'bold'))
+        self.label=ctk.CTkLabel(self.frame, text="Round trip printing",  fg_color="#A83232", corner_radius=0, 
+                                anchor='center',text_color="white",
+                                font=("Arial", 20, 'bold'))
         self.label.grid(row=0, column=0, pady=5, sticky="new")
         
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
@@ -35,12 +38,12 @@ class RoundTripprinting:
         
         try:
             image=ctk.CTkImage(dark_image=Image.open(image_path))
-            self.close_button=ctk.CTkButton(self.frame, text="",anchor="center", image=image, command=self.round_trip_print.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
+            self.close_button=ctk.CTkButton(self.frame, text="", image=image, command=self.round_trip_print.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
             self.close_button.grid(row=0, column=0,sticky='e')
             image.close()
         except FileNotFoundError:
             print(f"Error: Image not found at {image_path}")
-            self.close_button=ctk.CTkButton(self.frame, text="X",anchor="center", command=self.round_trip_print.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
+            self.close_button=ctk.CTkButton(self.frame, text="X", command=self.round_trip_print.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
             self.close_button.grid(row=0, column=0, sticky='e')
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -67,7 +70,9 @@ class RoundTripprinting:
         for index, label in enumerate(self.button_list):
             row=index // 3
             col=index % 3
-            button=ctk.CTkButton(self.frame, text = label, corner_radius=0, fg_color="#FF00FF", text_color= "black", font=("Arial", 15,))
+            button=ctk.CTkButton(self.frame, text = label, corner_radius=0, 
+                                fg_color="#FF00FF", text_color= "black", 
+                                font=("Arial", 15,))
             button.grid(row=row, column=col, padx=50, pady=20, sticky="ew")
             
 # Function to root window

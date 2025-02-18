@@ -2,6 +2,7 @@ import customtkinter as ctk
 from PIL import Image
 import os
 
+# Class of Grayscale Window
 class Grayscale:
     def __init__(self, root):
         
@@ -20,6 +21,7 @@ class Grayscale:
         self.grayscale.columnconfigure(0, weight=1)
         self.grayscale.rowconfigure((0,1,2), weight=1)
         
+    # Function to create title frame
     def title_frame(self):
         self.frame=ctk.CTkFrame(self.grayscale, fg_color="#A83232", corner_radius=0)
         self.frame.columnconfigure(0, weight=1)

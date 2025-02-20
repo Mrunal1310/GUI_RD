@@ -27,11 +27,11 @@ class InkHeating:
         self.frame.rowconfigure(0, weight=0)
         self.frame.grid(row=0, column=0, sticky="new")
         
-        self.label=ctk.CTkLabel(self.frame, text="Ink heating",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Arial", 20, 'bold'))
+        self.label=ctk.CTkLabel(self.frame, text="Ink heating", height=30, fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Arial", 20, 'bold'))
         self.label.grid(row=0, column=0, pady=5, sticky="new")
         
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
-        image_dir = os.path.join(script_dir,)
+        image_dir="images\\"
         image_path = os.path.join(image_dir, "close_icon.png")
         
         # Close Button Icon
@@ -42,8 +42,6 @@ class InkHeating:
             image.close()
         except FileNotFoundError:
             print(f"Error: Image not found at {image_path}")
-            self.close_button=ctk.CTkButton(self.frame, text="X", command=self.inkheating.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
-            self.close_button.grid(row=0, column=0, sticky='e')
         except Exception as e:
             print(f"An error occurred: {e}")
             

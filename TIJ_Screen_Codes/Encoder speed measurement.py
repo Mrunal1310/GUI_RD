@@ -34,7 +34,7 @@ class EncoderSpeedMeasurement:
         self.label.grid(row=0, column=0, pady=5, padx=0, sticky="new")
         
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
-        image_dir = os.path.join(script_dir,)
+        image_dir="images\\"
         image_path = os.path.join(image_dir, "close_icon.png")
         
         try:
@@ -44,8 +44,6 @@ class EncoderSpeedMeasurement:
             image.close()
         except FileNotFoundError:
             print(f"Error: Image not found at {image_path}")
-            self.close_button=ctk.CTkButton(self.frame, text="X", command=self.encoder.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
-            self.close_button.grid(row=0, column=0,sticky='e')
         except Exception as e:
             print(f"An error occurred: {e}")
             

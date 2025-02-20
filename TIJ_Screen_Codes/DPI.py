@@ -26,22 +26,21 @@ class DPIWindow:
         self.frame.rowconfigure(0, weight=0)
         self.frame.grid(row=0, column=0, sticky="new")
         
-        self.label=ctk.CTkLabel(self.frame, text="DPI",  fg_color="#A83232", corner_radius=0, anchor='center',text_color="white",font=("Arial", 20, 'bold'))
+        self.label=ctk.CTkLabel(self.frame, text="DPI",  fg_color="#A83232", corner_radius=0, height=30, anchor='center',text_color="white",font=("Arial", 20, 'bold'))
         self.label.grid(row=0, column=0, pady=5, padx=0, sticky="new")
         
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
-        image_dir = os.path.join(script_dir,)
+        image_dir="images\\"
         image_path = os.path.join(image_dir, "close_icon.png")
         
         try:
             image=ctk.CTkImage(dark_image=Image.open(image_path))
-            self.close_button=ctk.CTkButton(self.frame, text="", image=image, command=self.dpiwindow.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
-            self.close_button.grid(row=0, column=0,sticky='e')
+            print(image_path)
+            self.close_button=ctk.CTkButton(self.frame, text="", image=image, command=self.dpiwindow.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=30, corner_radius=0)
+            self.close_button.grid(row=0, column=0, sticky='e')
             image.close()
         except FileNotFoundError:
             print(f"Error: Image not found at {image_path}")
-            self.close_button=ctk.CTkButton(self.frame, text="X", command=self.dpiwindow.destroy, hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",width=50, height=20, corner_radius=0)
-            self.close_button.grid(row=0, column=0, sticky='e')
         except Exception as e:
             print(f"An error occurred: {e}")
             

@@ -20,7 +20,7 @@ class BorderPopup:
     # Funtion for border popup box (new toplevel window)
     def open_border(self):
         self.border=ctk.CTkToplevel(self.root)  
-        self.border.title("Warning")
+        self.border.title("Border")
         self.border.geometry("450x300")  
         self.border.resizable(False, False) 
         
@@ -40,7 +40,7 @@ class BorderPopup:
         self.label.grid(row=0, column=0, columnspan=4)
         
         script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
-        image_dir = os.path.join(script_dir,)
+        image_dir="images\\"
         image_path = os.path.join(image_dir, "close_icon.png")
         
         # Close Button Icon
@@ -48,15 +48,11 @@ class BorderPopup:
             image=ctk.CTkImage(dark_image=Image.open(image_path))
             self.close_button=ctk.CTkButton(self.frame, text="", image=image, command=self.border.destroy, 
                                             hover_color="#A83232", fg_color="#A83232",
-                                            width=50, height=20, corner_radius=0)
-            self.close_button.grid(row=0, column=0, sticky='e')
+                                            width=50, height=30, corner_radius=0)
+            self.close_button.grid(row=0, column=0,columnspan=4, sticky='e')
             image.close()
         except FileNotFoundError:
             print(f"Error: Image not found at {image_path}")
-            self.close_button=ctk.CTkButton(self.frame, text="X",command=self.border.destroy, 
-                                            hover_color="#A83232", fg_color="#A83232",bg_color="#A83232",
-                                            width=50, height=20, corner_radius=0)
-            self.close_button.grid(row=0, column=0,columnspan=4,sticky='e')
             
         except Exception as e:
             print(f"An error occurred: {e}")

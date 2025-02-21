@@ -1,0 +1,23 @@
+__Packages to be install in python.__
+
+## Customtkinter 
+'''
+    CustomTkinter is an upgraded version of the standard Tkinter library in Python, 
+    designed to create modern looking and fully customizable widgets.
+'''
+# Installation
+    pip install customtkinter
+
+# Importing the CustomTkinter Library
+    import customtkinter as ctk
+
+## Pillow
+'''
+    Pillow is used for image processing task in python. 
+    It is also known as Python Imaging Library (PIL). 
+'''
+# Installation
+    pip install Pillow
+
+# Importing the Image from Python Imaging Library
+    from PIL import Image

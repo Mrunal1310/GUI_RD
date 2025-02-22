@@ -101,7 +101,7 @@ class PopupBox:
 if __name__ == "__main__":
     # Border popup box
     root = ctk.CTk()
-    # app = PopupBox(root, "Ink level")
+    app = PopupBox(root, "Ink level")
     # app = PopupBox(root, "Size")
     # app = PopupBox(root, "Column width")
     # app = PopupBox(root, "Row height")

@@ -23,7 +23,7 @@ class PopupBox:
     # Funtion for popup box (new toplevel window)
     def open_popup_box(self):
         self.popup_box=ctk.CTkToplevel(self.root)  
-        self.popup_box.title("Border")
+        self.popup_box.title("Popup")
         self.popup_box.geometry("450x300")  
         self.popup_box.resizable(False, False) 
         
@@ -56,7 +56,7 @@ class PopupBox:
                                             hover_color="#A83232", fg_color="#A83232",
                                             width=50, height=30, corner_radius=0)
             self.close_button.grid(row=0, column=0,columnspan=4, sticky='e')
-            image.close()
+            
         except FileNotFoundError:
             print(f"Error: Image not found at {image_path}")
             
@@ -101,15 +101,30 @@ class PopupBox:
 if __name__ == "__main__":
     # Border popup box
     root = ctk.CTk()
-    app = PopupBox(root, "Border:")
-    root.mainloop()
-    
-    # Rows popup box
-    root = ctk.CTk()
-    app = PopupBox(root, "Rows:")
-    root.mainloop()
-    
-    # Columns popup box
-    # root = ctk.CTk()
+    # app = PopupBox(root, "Ink level")
+    # app = PopupBox(root, "Size")
+    # app = PopupBox(root, "Column width")
+    # app = PopupBox(root, "Row height")
+    # app = PopupBox(root, "Border:")
     # app = PopupBox(root, "Columns:")
-    # root.mainloop()
+    # app = PopupBox(root, "Rows:")
+    # app = PopupBox(root, "Print count")
+    # app = PopupBox(root, "Spray time")
+    # app = PopupBox(root, "Print times")
+    # app = PopupBox(root, "Pulse width")
+    # app = PopupBox(root, "Voltage")
+    # app = PopupBox(root, "frequency doubling")
+    # app = PopupBox(root, "Speed")
+    # app = PopupBox(root, "Encoder div")
+    # app = PopupBox(root, "Print interval")
+    # app = PopupBox(root, "Delay")
+    # app = PopupBox(root, "Consecutive times")
+    # app = PopupBox(root, "Sensor shielding distance")
+    # app = PopupBox(root, "Ink shortage alarm")
+    # app = PopupBox(root, "Screen off")
+    # app = PopupBox(root, "Set password")
+    # app = PopupBox(root, "Diameter of synchronous wheel")
+    # app = PopupBox(root, "Encoder pulse number")
+    # app = PopupBox(root, "Date jump time")
+    root.mainloop()
+    

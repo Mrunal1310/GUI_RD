@@ -52,7 +52,7 @@ class PopupBox:
         # Close Button Icon
         try:
             image=ctk.CTkImage(dark_image=Image.open(image_path))
-            self.close_button=ctk.CTkButton(self.frame, text="", image=image, command=self.border.destroy, 
+            self.close_button=ctk.CTkButton(self.frame, text="", image=image, command=self.popup_box.destroy, 
                                             hover_color="#A83232", fg_color="#A83232",
                                             width=50, height=30, corner_radius=0)
             self.close_button.grid(row=0, column=0,columnspan=4, sticky='e')

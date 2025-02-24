@@ -71,7 +71,6 @@ class FileList:
         self.open_butn=ctk.CTkButton(self.frame, text="Open",  text_color="white",fg_color="#A83232", font=("Arial", 22,), corner_radius=0,)
         self.open_butn.grid(row=1, column=0, padx=10,pady=10,sticky="es")
         
-        
         self.label=ctk.CTkLabel(self.frame, text="", font=('Arial', 18), anchor='nw',text_color="black", height=100,fg_color="#C4E3ED")
         self.label.grid(row=0, column=0,padx=5, pady=5, sticky="new")
         

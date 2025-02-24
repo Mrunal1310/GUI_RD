@@ -50,11 +50,13 @@ class FileList:
         self.frame.rowconfigure((0,1,), weight=0)
         self.frame.grid(row=1, column=0,pady=10,padx=10, sticky="news")
         
-        self.system_disk=ctk.CTkButton(self.frame, text="System disk", text_color="black",anchor="w", fg_color="white",hover_color="#FF00FF",font=("Arial", 20,),corner_radius=0, )
-        self.system_disk.grid(row=0, column=0, padx=10,pady=5,sticky="news")
+        self.button_list=["System disk","User disk" ]
         
-        self.user_disk=ctk.CTkButton(self.frame, text="User disk",  text_color="black",anchor="w",fg_color="white",hover_color="#FF00FF", font=("Arial", 20,), corner_radius=0,)
-        self.user_disk.grid(row=1, column=0, padx=10,pady=5,sticky="news")
+        for index, text in enumerate(self.button_list):
+            button = ctk.CTkButton(self.frame, text=text, text_color="black", anchor="w", command=lambda t=text: self.system_button(t),
+                                    fg_color="white", hover_color="#FF00FF", font=("Arial", 20,), corner_radius=0)
+            button.grid(row=index + 1, column=0, padx=10, pady=5, sticky="news")
+        
         
     def display_frame(self):
         
@@ -68,6 +70,17 @@ class FileList:
         
         self.open_butn=ctk.CTkButton(self.frame, text="Open",  text_color="white",fg_color="#A83232", font=("Arial", 22,), corner_radius=0,)
         self.open_butn.grid(row=1, column=0, padx=10,pady=10,sticky="es")
+        
+        
+        self.label=ctk.CTkLabel(self.frame, text="", font=('Arial', 18), anchor='nw',text_color="black", height=100,fg_color="#C4E3ED")
+        self.label.grid(row=0, column=0,padx=5, pady=5, sticky="new")
+        
+    def system_button(self, text):
+        if text == "System disk":
+            self.label.configure(text="System disk\n 2.0GB/2.0GB")
+        elif text == "User disk":
+            self.label.configure(text="User disk\n 66.8MB/66.8MB")
+        
         
 def main():
     root=ctk.CTk()
